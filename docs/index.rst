@@ -28,6 +28,16 @@ Introduction
 
 .. INTRODUCTION START
 
+A Sphinx extension that provides useful directives for creating project
+documentation
+
+.. warning::
+
+   Currently, this extension is only used internally in `Sphinx Notes`__ and
+   **NO** availability guarantees.
+
+   __ https://sphinx.silverrainz.me/
+
 .. INTRODUCTION END
 
 Getting Started
@@ -60,6 +70,8 @@ Then, add the extension name to ``extensions`` configuration item in your
 
 .. ADDITIONAL CONTENT START
 
+Check out :doc:`usage` for all available directives.
+
 .. ADDITIONAL CONTENT END
 
 Contents
@@ -68,6 +80,7 @@ Contents
 .. toctree::
    :caption: Contents
 
+   usage
    changelog
 
 The Sphinx Notes Project
