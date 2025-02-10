@@ -18,3 +18,11 @@ Change Log
       :date: yyyy-mm-dd
 
    Change log here.
+
+Version 1.x
+===========
+
+.. version:: 1.0a0
+   :date: 2025-02-10
+
+   Alpha version~
