@@ -91,7 +91,12 @@ def _config_inited(app: Sphinx, config: Config) -> None:
 
 
 def setup(app: Sphinx):
-    app.setup_extension('sphinxnotes.any')
+    try: 
+        # Loaded from local directory (../src/sphinxnotes).
+        app.setup_extension('any')
+    except ModuleNotFoundError:
+        app.setup_extension('sphinxnotes.any')
+
     # Should have priority over sphinxnotes.any's "config-inited" callback.
     app.connect('config-inited', _config_inited, priority=400)
 
