@@ -28,6 +28,13 @@ A Sphinx extension that provides useful directives for creating project document
 .. INTRODUCTION START 
    (MUST written in standard reStructuredText, without Sphinx stuff)
 
+.. warning::
+
+   Currently, this extension is only used internally in `Sphinx Notes`__ and
+   **NO availability/stability guarantees**.
+
+   __ https://sphinx.silverrainz.me/
+
 .. INTRODUCTION END
 
 Please refer to Documentation_ for more details.
