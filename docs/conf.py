@@ -100,9 +100,6 @@ comboroles_roles = {
     'parsed_literal': (['literal'], True),
 }
 
-extensions.append('sphinxnotes.project')
-primary_domain = 'any'
-
 # -- Eat your own dog food --------------------------------------------------
 
 # If extensions (or modules to document with autodoc) are in another directory,
