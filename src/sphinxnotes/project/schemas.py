@@ -68,7 +68,7 @@ def _config_inited(app: Sphinx, config: Config) -> None:
         ambiguous_reference_template='⚙️{{ title }}',
     )
     example_schema = Schema(
-        'rst-example',
+        'example',
         name=F(ref=True),
         attrs={'style': F()},
         content=F(form=F.Forms.LINES),
