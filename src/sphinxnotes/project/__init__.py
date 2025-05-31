@@ -2,7 +2,7 @@
 sphinxnotes.project
 ~~~~~~~~~~~~~~~~~~~
 
-Sphinx extension entrypoint.
+Common sphinx extension for sphinxnotes project.
 
 :copyright: Copyright 2025 Shengyu Zhang
 :license: BSD, see LICENSE for details.
@@ -10,8 +10,6 @@ Sphinx extension entrypoint.
 
 from __future__ import annotations
 from typing import TYPE_CHECKING
-from importlib.metadata import version
-from os import path
 
 from sphinx.util import logging
 
