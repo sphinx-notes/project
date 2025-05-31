@@ -11,16 +11,15 @@ Common sphinx extension for sphinxnotes project.
 from __future__ import annotations
 from typing import TYPE_CHECKING
 
-from sphinx.util import logging
-
 if TYPE_CHECKING:
     from sphinx.application import Sphinx
 
-
-logger = logging.getLogger(__name__)
-
+from . import meta
 
 def setup(app: Sphinx):
-    from . import schemas
+    meta.pre_setup(app)
 
+    from . import schemas
     schemas.setup(app)
+
+    return meta.post_setup(app)
