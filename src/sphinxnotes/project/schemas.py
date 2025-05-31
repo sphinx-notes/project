@@ -9,6 +9,7 @@ See also https://sphinx.silverrainz.me/any/.
 :copyright: Copyright 2025 Shengyu Zhang
 :license: BSD, see LICENSE for details.
 """
+
 from __future__ import annotations
 from typing import TYPE_CHECKING
 from os import path
@@ -78,11 +79,13 @@ def _config_inited(app: Sphinx, config: Config) -> None:
         ambiguous_reference_template='📝{{ title }}',
     )
 
-    config.any_schemas.extend([
-        version_schema,
-        confval_schema,
-        example_schema,
-    ])
+    config.any_schemas.extend(
+        [
+            version_schema,
+            confval_schema,
+            example_schema,
+        ]
+    )
 
 
 def setup(app: Sphinx):
