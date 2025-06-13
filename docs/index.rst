@@ -72,8 +72,6 @@ Then, add the extension name to ``extensions`` configuration item in your
 
 .. ADDITIONAL CONTENT START
 
-Check out :doc:`usage` for all available directives.
-
 .. ADDITIONAL CONTENT END
 
 Contents
@@ -82,7 +80,6 @@ Contents
 .. toctree::
    :caption: Contents
 
-   usage
    changelog
 
 The Sphinx Notes Project

@@ -19,10 +19,9 @@ Change Log
 
    Change log here.
 
-Version 1.x
-===========
+.. warning::
 
-.. version:: 1.0a0
-   :date: 2025-02-10
+   Currently, this extension is only used internally in `Sphinx Notes`__ and
+   **NO stable version available**.
 
-   Alpha version~
+   __ https://sphinx.silverrainz.me/
