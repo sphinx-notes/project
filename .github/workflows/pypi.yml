@@ -4,6 +4,11 @@ on:
   push:
     tags:
       - "*"
+  workflow_call: # can be triggered by other actions
+    inputs:
+      ref:
+        required: true
+        type: string
 
 jobs:
   pypi:
@@ -15,6 +20,8 @@ jobs:
       id-token: write  # IMPORTANT: this permission is mandatory for trusted publishing
     steps:
     - uses: actions/checkout@v4
+      with:
+        ref: ${{ inputs.ref || github.ref }}
     - uses: actions/setup-python@v5
     - run: pip install build twine && make dist
     - uses: pypa/gh-action-pypi-publish@release/v1
