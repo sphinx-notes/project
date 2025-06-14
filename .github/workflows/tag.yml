@@ -18,7 +18,9 @@ jobs:
       - uses: anothrNick/github-tag-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CUSTOM_TAG: "1.0a${{ github.run_number }}"
+          CUSTOM_TAG: 1.0a${{ github.run_number }}
   publish:
     uses: ./.github/workflows/pypi.yml
     needs: tag
+    env:
+      GITHUB_REF: 1.0a${{ github.run_number }}
