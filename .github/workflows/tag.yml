@@ -22,5 +22,5 @@ jobs:
   publish:
     uses: ./.github/workflows/pypi.yml
     needs: tag
-    env:
-      GITHUB_REF: 1.0a${{ github.run_number }}
+    with:
+      github_ref: 1.0a${{ github.run_number }}
