@@ -1,4 +1,4 @@
-name: Tag every commit
+name: Tag and Publish every commit
 
 on:
   push:
@@ -6,8 +6,11 @@ on:
       - master
 
 jobs:
-  build:
+  tag:
     runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/sphinxnotes-project
     permissions:
       contents: write
     steps:
@@ -16,8 +19,10 @@ jobs:
           fetch-depth: '0'
       - uses: anothrNick/github-tag-action@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # if you don't want to set write permissions use a PAT token
-          TAG_PREFIX:
-          INITIAL_VERSION: 1.1.0
-          PRERELEASE: true
-          PRERELEASE_SUFFIX: a
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CUSTOM_TAG: 1.0a${{ github.run_number }}
+      - uses: actions/setup-python@v5
+      - run: pip install build twine && make dist
+      - uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}
