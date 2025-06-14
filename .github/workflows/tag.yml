@@ -4,9 +4,10 @@ on:
   push:
     branches:
       - master
+      - tag-every-commit
 
 jobs:
-  build:
+  tag:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -16,8 +17,8 @@ jobs:
           fetch-depth: '0'
       - uses: anothrNick/github-tag-action@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # if you don't want to set write permissions use a PAT token
-          TAG_PREFIX:
-          INITIAL_VERSION: 1.1.0
-          PRERELEASE: true
-          PRERELEASE_SUFFIX: a
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CUSTOM_TAG: "1.0a${{ github.run_number }}"
+  publish:
+    uses: ./.github/workflows/pypi.yml
+    needs: tag

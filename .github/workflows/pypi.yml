@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - "*"
+  workflow_call: # can be triggered by other actions
 
 jobs:
   pypi:
