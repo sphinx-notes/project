@@ -117,8 +117,4 @@ import sys
 sys.path.insert(0, os.path.abspath('../src/sphinxnotes'))
 extensions.append('project')
 
-# DOG FOOD CONFIGURATION START
-
-# DOG FOOD CONFIGURATION END
-
 # CUSTOM CONFIGURATION
