@@ -16,10 +16,12 @@ if TYPE_CHECKING:
 
 from . import meta
 
+
 def setup(app: Sphinx):
     meta.pre_setup(app)
 
     from . import schemas
+
     schemas.setup(app)
 
     return meta.post_setup(app)

@@ -14,7 +14,9 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 from os import path
 
-from sphinxnotes.any.api import Schema, Field as F, by_year, by_month
+from sphinxnotes.any.api import Schema, Field as F, by_year
+
+from . import meta
 
 if TYPE_CHECKING:
     from sphinx.application import Sphinx
@@ -44,7 +46,7 @@ def _config_inited(app: Sphinx, config: Config) -> None:
         'version',
         name=F(uniq=True, ref=True, required=True, form=F.Forms.LINES),
         attrs={
-            'date': F(ref=True, indexers=[by_year, by_month]),
+            'date': F(ref=True, indexers=[by_year]),
         },
         content=F(form=F.Forms.LINES),
         description_template=_read_template_file('version'),
@@ -89,6 +91,10 @@ def _config_inited(app: Sphinx, config: Config) -> None:
 
 
 def setup(app: Sphinx):
+    meta.pre_setup(app)
+
     app.setup_extension('sphinxnotes.any')
     # Should have priority over sphinxnotes.any's "config-inited" callback.
     app.connect('config-inited', _config_inited, priority=400)
+
+    return meta.post_setup(app)
