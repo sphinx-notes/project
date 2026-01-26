@@ -12,7 +12,7 @@ sphinxnotes-project
    :target: https://github.com/sphinx-notes/project/blob/master/LICENSE
    :alt: Open Source License
 .. |pypi| image:: https://img.shields.io/pypi/v/sphinxnotes-project.svg
-   :target: https://pypi.python.org/pypi/sphinxnotes-project
+   :target: https://pypistats.org/packages/sphinxnotes-project
    :alt: PyPI Package
 .. |download| image:: https://img.shields.io/pypi/dm/sphinxnotes-project
    :target: https://pypi.python.org/pypi/sphinxnotes-project
@@ -80,6 +80,7 @@ Contents
 .. toctree::
    :caption: Contents
 
+   Introduction <index>
    changelog
 
 The Sphinx Notes Project
@@ -91,7 +92,8 @@ as part of **The Sphinx Notes Project**.
 .. toctree::
    :caption: The Sphinx Notes Project
 
-   Home <https://sphinx.silverrainz.me/>
+   Home <https://sphinx.silverrainz.me>
+   GitHub <https://github.com/sphinx-notes>
    Blog <https://silverrainz.me/blog/category/sphinx.html>
    PyPI <https://pypi.org/search/?q=sphinxnotes>
 

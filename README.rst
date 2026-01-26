@@ -15,7 +15,7 @@ sphinxnotes-project
    :target: https://pypi.python.org/pypi/sphinxnotes-project
    :alt: PyPI Package
 .. |download| image:: https://img.shields.io/pypi/dm/sphinxnotes-project
-   :target: https://pypi.python.org/pypi/sphinxnotes-project
+   :target: https://pypistats.org/packages/sphinxnotes-project
    :alt: PyPI Package Downloads
 
 |docs| |license| |pypi| |download|
