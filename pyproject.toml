@@ -43,7 +43,7 @@ dependencies = [
     "Sphinx >= 7.0",
 
     # CUSTOM DEPENDENCIES START
-    "sphinxnotes-any >= 3.0a4",
+    "sphinxnotes-any >= 3.0b0",
     # CUSTOM DEPENDENCIES END
 ]
 

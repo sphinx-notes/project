@@ -14,10 +14,6 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 from os import path
 
-from sphinxnotes.any.api import Schema, Field as F, by_year
-
-from . import meta
-
 if TYPE_CHECKING:
     from sphinx.application import Sphinx
     from sphinx.config import Config
@@ -42,59 +38,56 @@ def _read_template_file(name: str) -> str:
 
 
 def _config_inited(app: Sphinx, config: Config) -> None:
-    version_schema = Schema(
-        'version',
-        name=F(uniq=True, ref=True, required=True, form=F.Forms.LINES),
-        attrs={
-            'date': F(ref=True, indexers=[by_year]),
+    config.obj_type_defines.update({
+        'version': {
+            'schema': {
+                'attrs': {
+                    'date': 'date, required, ref, index by year',
+                },
+                'content': 'lines of str',
+            },
+            'templates': {
+                'obj': _read_template_file('version'),
+                'header': '🏷️ {{ name }}',
+                'ref': '🏷️ ``{{ name }}``',
+            },
         },
-        content=F(form=F.Forms.LINES),
-        description_template=_read_template_file('version'),
-        reference_template='🏷️{{ title }}',
-        missing_reference_template='🏷️{{ title }}',
-        ambiguous_reference_template='🏷️{{ title }}',
-    )
-    confval_schema = Schema(
-        'confval',
-        name=F(uniq=True, ref=True, required=True, form=F.Forms.LINES),
-        attrs={
-            'type': F(),
-            'default': F(),
-            'choice': F(form=F.Forms.WORDS),
-            'versionadded': F(),
-            'versionchanged': F(form=F.Forms.LINES),
+        'autoconfval': {
+            'schema': {
+                'name': 'str',
+                'content': 'lines of str',
+            },
+            'templates': {
+                'obj': _read_template_file('autoconfval'),
+                'header': None,
+            },
         },
-        content=F(),
-        description_template=_read_template_file('confval'),
-        reference_template='⚙️{{ title }}',
-        missing_reference_template='⚙️{{ title }}',
-        ambiguous_reference_template='⚙️{{ title }}',
-    )
-    example_schema = Schema(
-        'example',
-        name=F(ref=True),
-        attrs={'style': F()},
-        content=F(form=F.Forms.LINES),
-        description_template=_read_template_file('example'),
-        reference_template='📝{{ title }}',
-        missing_reference_template='📝{{ title }}',
-        ambiguous_reference_template='📝{{ title }}',
-    )
+        'autoobj': {
+            'schema': {
+                'name': 'list of str, sep by ":", ref',
+            },
+            'templates': {
+                'obj': _read_template_file('autoobj'),
+                'header': 'The ``{{ name[1] }}`` object in "{{ name[0] }}" domain'
+            },
+        },
+        'example': {
+            'schema': {
+                'name': 'str, ref',
+                'attrs': {
+                    'style': 'str',
+                },
+                'content': 'lines of str',
+            },
+            'templates': {
+                'obj': _read_template_file('example'),
+            },
+        }
+    })
 
-    config.any_schemas.extend(
-        [
-            version_schema,
-            confval_schema,
-            example_schema,
-        ]
-    )
 
 
 def setup(app: Sphinx):
-    meta.pre_setup(app)
-
     app.setup_extension('sphinxnotes.any')
     # Should have priority over sphinxnotes.any's "config-inited" callback.
     app.connect('config-inited', _config_inited, priority=400)
-
-    return meta.post_setup(app)

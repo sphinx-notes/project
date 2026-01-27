@@ -81,6 +81,7 @@ Contents
    :caption: Contents
 
    Introduction <index>
+   objs
    changelog
 
 The Sphinx Notes Project
