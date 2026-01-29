@@ -80,8 +80,7 @@ Contents
 .. toctree::
    :caption: Contents
 
-   Introduction <index>
-   objs
+   anyobjtypes
    changelog
 
 The Sphinx Notes Project
@@ -93,7 +92,7 @@ as part of **The Sphinx Notes Project**.
 .. toctree::
    :caption: The Sphinx Notes Project
 
-   Home <https://sphinx.silverrainz.me>
+   Home <https://sphinx.silverrainz.me/>
    GitHub <https://github.com/sphinx-notes>
    Blog <https://silverrainz.me/blog/category/sphinx.html>
    PyPI <https://pypi.org/search/?q=sphinxnotes>
