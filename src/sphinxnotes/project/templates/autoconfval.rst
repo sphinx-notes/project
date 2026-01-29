@@ -14,10 +14,10 @@
    :type: {{ types | roles('py') | join(',') }}
    :default: :py:`{{ opt.default | pprint }}`
 
-   {% for line in opt.description.split('\n') -%}
+   {%- for line in opt.description.split('\n') %}
    {{ line }}
    {% endfor %}
 
-   {% for line in content or [] -%}
-   {{ line }}
-   {% endfor %}
+{% for line in content.split('\n') -%}
+{{ line }}
+{% endfor %}

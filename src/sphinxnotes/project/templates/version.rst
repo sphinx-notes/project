@@ -6,6 +6,6 @@
 .. note:: This version is still under development and has not been released yet.
 {%- endif%}
 
-{% for line in content or [] -%}
+{% for line in content.split('\n') -%}
 {{ line }}
 {% endfor %}

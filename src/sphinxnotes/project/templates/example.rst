@@ -1,10 +1,9 @@
-
 {% if style is not defined or style == 'tab' %}
 .. tab-set::
 
    .. tab-item:: Result
 
-      {% for line in content or [] -%}
+      {% for line in content.split('\n') -%}
       {{ line }}
       {% endfor %}
 
@@ -12,7 +11,7 @@
 
       .. code:: rst
 
-         {% for line in content or [] -%}
+         {% for line in content.split('\n') -%}
          {{ line }}
          {% endfor %}
 {% elif style == 'grid'  %}
@@ -23,13 +22,13 @@
 
       .. code:: rst
 
-         {% for line in content or [] -%}
+         {% for line in content.split('\n') -%}
          {{ line }}
          {% endfor %}
 
    .. grid-item-card:: Result
 
-      {% for line in content or [] -%}
+      {% for line in content.split('\n') -%}
       {{ line }}
       {% endfor %}
 {% endif %}

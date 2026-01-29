@@ -43,7 +43,6 @@ ANY_OBJECT_TYPES = {
             'attrs': {
                 'date': 'date, required, ref, index by year',
             },
-            'content': 'lines of str',
         },
         'templates': {
             'obj': _read_template_file('version'),
@@ -54,7 +53,6 @@ ANY_OBJECT_TYPES = {
     'autoconfval': {
         'schema': {
             'name': 'str',
-            'content': 'lines of str',
         },
         'templates': {
             'obj': _read_template_file('autoconfval'),
@@ -76,7 +74,6 @@ ANY_OBJECT_TYPES = {
             'attrs': {
                 'style': 'str',
             },
-            'content': 'lines of str',
         },
         'templates': {
             'obj': _read_template_file('example'),

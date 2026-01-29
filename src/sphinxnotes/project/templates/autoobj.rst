@@ -34,6 +34,6 @@ Cross-reference roles for referencing a ``{{ dispname }}`` object:
 {% endif %}
 {% endfor %}
 
-{% for line in content or []-%}
+{% for line in content.split('\n') -%}
 {{ line }}
 {% endfor %}
