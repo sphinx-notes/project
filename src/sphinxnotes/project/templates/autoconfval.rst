@@ -18,6 +18,6 @@
    {{ line }}
    {% endfor %}
 
-{% for line in content.split('\n') -%}
+{% for line in (content or '').split('\n') -%}
 {{ line }}
 {% endfor %}
