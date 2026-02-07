@@ -1,4 +1,4 @@
-{% if style is not defined or style == 'tab' %}
+{% if not style or style == 'tab' %}
 .. tab-set::
 
    .. tab-item:: Result
