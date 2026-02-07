@@ -2,10 +2,10 @@
 Pre-defined Objects
 ===================
 
-.. autoobj:: obj:version
+.. autoobj:: any:version
 
-.. autoobj:: obj:autoconfval
+.. autoobj:: any:autoconfval
 
-.. autoobj:: obj:example
+.. autoobj:: any:example
 
-.. autoobj:: obj:autoobj
+.. autoobj:: any:autoobj

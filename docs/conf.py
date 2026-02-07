@@ -118,4 +118,4 @@ sys.path.insert(0, os.path.abspath('../src/sphinxnotes'))
 extensions.append('project')
 
 # CUSTOM CONFIGURATION
-primary_domain = 'obj'
+primary_domain = 'any'
