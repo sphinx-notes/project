@@ -61,11 +61,11 @@ ANY_OBJECT_TYPES = {
     },
     'autoobj': {
         'schema': {
-            'name': 'list of str, sep by ":", ref',
+            'name': 'list of str, sep by ":"',
         },
         'templates': {
             'obj': _read_template_file('autoobj'),
-            'header': 'The ``{{ name[1] }}`` object in "{{ name[0] }}" domain'
+            'header': None,
         },
     },
     'example': {
