@@ -41,7 +41,8 @@ ANY_OBJECT_TYPES = {
     'version': {
         'schema': {
             'attrs': {
-                'date': 'date, required, ref, index by year',
+                'date': 'date, ref, index by year',
+                'break': 'flag',
             },
         },
         'templates': {
