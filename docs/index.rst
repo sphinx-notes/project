@@ -31,12 +31,7 @@ Introduction
 A Sphinx extension that provides useful directives for creating project
 documentation
 
-.. warning::
-
-   Currently, this extension is only used internally in `Sphinx Notes`__ and
-   **NO availability/stability guarantees**.
-
-   __ https://sphinx.silverrainz.me/
+.. internal-only::
 
 .. INTRODUCTION END
 
@@ -80,7 +75,7 @@ Contents
 .. toctree::
    :caption: Contents
 
-   anyobjtypes
+   sphinxnotes_any
    changelog
 
 The Sphinx Notes Project

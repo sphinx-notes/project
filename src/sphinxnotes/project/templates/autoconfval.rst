@@ -1,4 +1,4 @@
-{% set opt = _sphinx.config.values[name] %}
+{% set opt = load_extra('env').config.values[name] %}
 
 .. role:: py(code)
    :language: Python

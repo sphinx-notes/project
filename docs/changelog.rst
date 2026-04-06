@@ -19,9 +19,4 @@ Change Log
 
    Change log here.
 
-.. warning::
-
-   Currently, this extension is only used internally in `Sphinx Notes`__ and
-   **NO stable version available**.
-
-   __ https://sphinx.silverrainz.me/
+.. internal-only::

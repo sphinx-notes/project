@@ -1,8 +1,8 @@
 """
-sphinxnotes.project.schemas
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sphinxnotes.project.sphinxnotes_any
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Useful object schemas for project management.
+Useful sphinxnotes-any config for project management.
 
 See also https://sphinx.silverrainz.me/any/.
 
@@ -51,24 +51,6 @@ ANY_OBJECT_TYPES = {
             'ref': '🏷️ ``{{ name }}``',
         },
     },
-    'autoconfval': {
-        'schema': {
-            'name': 'str',
-        },
-        'templates': {
-            'obj': _read_template_file('autoconfval'),
-            'header': None,
-        },
-    },
-    'autoobj': {
-        'schema': {
-            'name': 'list of str, sep by ":"',
-        },
-        'templates': {
-            'obj': _read_template_file('autoobj'),
-            'header': None,
-        },
-    },
     'example': {
         'schema': {
             'name': 'str, ref',
@@ -82,8 +64,13 @@ ANY_OBJECT_TYPES = {
     }
 }
 
+
 def _config_inited(app: Sphinx, config: Config) -> None:
-    config.any_object_types.update(ANY_OBJECT_TYPES)
+    if v := config.any_object_types:
+        v.update(ANY_OBJECT_TYPES)
+    else:
+        # Prevent modifying the default value.
+        config.any_object_types = ANY_OBJECT_TYPES
 
 
 def setup(app: Sphinx):

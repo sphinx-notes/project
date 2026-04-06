@@ -1,4 +1,4 @@
-{% set domain = _sphinx.registry.domains[name[0]] %}
+{% set domain = load_extra('app').registry.domains[name[0]] %}
 {% set dir = domain.directives[name[1]] %}
 {% set roles = domain.roles %}
 {% set schema = domain.schemas[name[1]] %}

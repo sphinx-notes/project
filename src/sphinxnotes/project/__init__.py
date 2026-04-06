@@ -20,8 +20,8 @@ from . import meta
 def setup(app: Sphinx):
     meta.pre_setup(app)
 
-    from . import anyobjtypes
-
-    anyobjtypes.setup(app)
+    from . import sphinxnotes_any, sphinxnotes_render_ext
+    sphinxnotes_any.setup(app)
+    sphinxnotes_render_ext.setup(app)
 
     return meta.post_setup(app)
