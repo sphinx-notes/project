@@ -25,7 +25,6 @@ DATA_DEFINE_DIRECTIVES = {
         },
         'template': {
             'text': _read_template_file('autoconfval'),
-            'extra': ['env'],
         },
     },
     'autoobj': {
@@ -34,7 +33,6 @@ DATA_DEFINE_DIRECTIVES = {
         },
         'template': {
             'text': _read_template_file('autoobj'),
-            'extra': ['app'],
         },
     },
     'internal-only': {
