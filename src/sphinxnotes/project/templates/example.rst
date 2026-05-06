@@ -17,8 +17,11 @@
 {% elif style == 'grid'  %}
 .. grid:: 1 1 2 2
    :gutter: 1
+   :margin: 0
+   :padding: 0
 
    .. grid-item-card:: Source
+      :margin: 0
 
       .. code:: rst
 
@@ -27,6 +30,7 @@
          {% endfor %}
 
    .. grid-item-card:: Result
+      :margin: 0
 
       {% for line in content.split('\n') -%}
       {{ line }}
