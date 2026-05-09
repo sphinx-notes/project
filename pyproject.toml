@@ -44,6 +44,7 @@ dependencies = [
 
     # CUSTOM DEPENDENCIES START
     "sphinxnotes-any >= 3.0b0",
+    "sphinx_design",
     # CUSTOM DEPENDENCIES END
 ]
 
