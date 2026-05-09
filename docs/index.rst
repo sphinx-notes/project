@@ -75,6 +75,7 @@ Contents
 .. toctree::
    :caption: Contents
 
+   conf
    sphinxnotes_any
    changelog
 

@@ -21,6 +21,7 @@ def setup(app: Sphinx):
     meta.pre_setup(app)
 
     from . import sphinxnotes_any, sphinxnotes_render_ext
+
     sphinxnotes_any.setup(app)
     sphinxnotes_render_ext.setup(app)
 

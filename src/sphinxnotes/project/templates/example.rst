@@ -1,4 +1,5 @@
-{% if not style or style == 'tab' %}
+{% set effective_style = style or load_extra('env').config.project_example_style %}
+{% if effective_style == 'tab' %}
 .. tab-set::
 
    .. tab-item:: Result
@@ -14,7 +15,7 @@
          {% for line in content.split('\n') -%}
          {{ line }}
          {% endfor %}
-{% elif style == 'grid'  %}
+{% elif effective_style == 'grid'  %}
 .. grid:: 1 1 2 2
    :gutter: 1
    :margin: 0
