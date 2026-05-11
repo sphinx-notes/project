@@ -9,14 +9,35 @@ See also https://sphinx.silverrainz.me/render/.
 :copyright: Copyright 2025 Shengyu Zhang
 :license: BSD, see LICENSE for details.
 """
+
 from __future__ import annotations
 from typing import TYPE_CHECKING
+
+from sphinx.config import ENUM
+from sphinxnotes.render import filter
 
 from .sphinxnotes_any import _read_template_file
 
 if TYPE_CHECKING:
+    from collections.abc import Iterable
     from sphinx.application import Sphinx
     from sphinx.config import Config
+    from sphinx.environment import BuildEnvironment
+
+
+def _format_autoconfval_types(valid_types) -> list[str]:
+    if isinstance(valid_types, ENUM):
+        return [f'``{c!r}``' for c in sorted(valid_types._candidates)]  # pyright: ignore[reportPrivateUsage]
+    return [f':py:`{t.__name__}`' for t in valid_types]
+
+
+@filter('autoconfval_types')
+def autoconfval_types(_: BuildEnvironment):
+    def _filter(valid_types) -> Iterable[str]:
+        return _format_autoconfval_types(valid_types)
+
+    return _filter
+
 
 DATA_DEFINE_DIRECTIVES = {
     'autoconfval': {
@@ -46,6 +67,7 @@ DATA_DEFINE_DIRECTIVES = {
         },
     },
 }
+
 
 def _config_inited(app: Sphinx, config: Config) -> None:
     if v := config.render_ext_data_define_directives:
