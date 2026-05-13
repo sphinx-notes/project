@@ -10,5 +10,9 @@ sphinxext-opengraph
 sphinx-last-updated-by-git
 sphinxnotes-comboroles
 
+# NOTE: Not used by docs (docs import extension from ../src),
+# only to resolve its optional dependencies.
+sphinxnotes-project
+
 # CUSTOM DOCS DEPENDENCIES START
 # CUSTOM DOCS DEPENDENCIES END
