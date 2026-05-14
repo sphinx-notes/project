@@ -11,7 +11,8 @@ See also https://sphinx.silverrainz.me/render/.
 """
 
 from __future__ import annotations
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, get_args, get_origin
+import types as pytypes
 
 from sphinx.config import ENUM
 from sphinxnotes.render import filter
@@ -25,10 +26,23 @@ if TYPE_CHECKING:
     from sphinx.environment import BuildEnvironment
 
 
+def _fmt_type(t) -> str:
+    origin = get_origin(t)
+    args = get_args(t)
+    if origin is pytypes.UnionType:
+        return ' | '.join(_fmt_type(a) for a in args)
+    if t is type(None):
+        return 'None'
+    if origin is not None:
+        args_str = ', '.join(_fmt_type(a) for a in args)
+        return f'{_fmt_type(origin)}[{args_str}]'
+    return t.__name__
+
+
 def _format_autoconfval_types(valid_types) -> list[str]:
     if isinstance(valid_types, ENUM):
         return [f'``{c!r}``' for c in sorted(valid_types._candidates)]  # pyright: ignore[reportPrivateUsage]
-    return [f':py:`{t.__name__}`' for t in valid_types]
+    return [f':py:`{_fmt_type(t)}`' for t in valid_types]
 
 
 @filter('autoconfval_types')
