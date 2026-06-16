@@ -25,8 +25,8 @@
 
       {{ render_source(content) }}
 
-{% elif _style in ['grid', 'split'] %}
-.. grid:: 1 1 2 2
+{% elif _style in ['grid', 'split', 'stack'] %}
+.. grid:: {% if _style == 'stack' %}1 1 1 1{% else %}1 1 2 2{% endif %}
    :gutter: 1
    :margin: 0
    :padding: 0
@@ -40,5 +40,11 @@
       :margin: 0
 
       {{ render_result(content) }}
+
+{% else %}
+
+.. error::
+
+   Unkown example style ``{{ _style }}``.
 
 {% endif %}

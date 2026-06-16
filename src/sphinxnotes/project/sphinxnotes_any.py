@@ -39,7 +39,6 @@ def _read_template_file(name: str) -> str:
     return open(_get_template_file(name), 'r').read()
 
 
-
 ANY_OBJECT_TYPES = {
     'version': {
         'schema': {
@@ -82,7 +81,7 @@ def setup(app: Sphinx):
         'project_example_style',
         'split',
         'env',
-        types=ENUM('tab', 'grid', 'split'),
+        types=ENUM('tab', 'grid', 'split', 'stack'),
     )
     # Should have priority over sphinxnotes.any's "config-inited" callback.
     app.connect('config-inited', _config_inited, priority=400)
