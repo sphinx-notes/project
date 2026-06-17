@@ -11,6 +11,6 @@
    {{ line }}
    {% endfor %}
 
-{% for line in (content or '').split('\n') -%}
-{{ line }}
-{% endfor %}
+   {% for line in (content or '').split('\n') -%}
+   {{ line }}
+   {% endfor %}
