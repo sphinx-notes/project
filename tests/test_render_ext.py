@@ -1,6 +1,9 @@
 """Tests for sphinxnotes_render_ext."""
 
-from sphinxnotes.project.sphinxnotes_render_ext import _fmt_type, _format_autoconfval_types
+from sphinxnotes.project.sphinxnotes_render_ext import (
+    _fmt_type,
+    _format_autoconfval_types,
+)
 from sphinx.config import ENUM
 
 
@@ -34,7 +37,11 @@ class TestFmtType:
 class TestFormatAutoconfvalTypes:
     def test_enum(self):
         result = _format_autoconfval_types(ENUM('tab', 'grid'))
-        assert result == ["``'grid'``", "``'tab'``"]
+        assert result == [":py:`'grid'`", ":py:`'tab'`"]
+
+    def test_enum_with_none(self):
+        result = _format_autoconfval_types(ENUM(None, 'day', 'month', 'year'))
+        assert result == [":py:`'day'`", ":py:`'month'`", ":py:`'year'`", ':py:`None`']
 
     def test_simple_types(self):
         result = _format_autoconfval_types(frozenset({str, int}))
