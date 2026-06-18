@@ -41,7 +41,8 @@ def _fmt_type(t) -> str:
 
 def _format_autoconfval_types(valid_types) -> list[str]:
     if isinstance(valid_types, ENUM):
-        return [f'``{c!r}``' for c in sorted(valid_types._candidates)]  # pyright: ignore[reportPrivateUsage]
+        reprs = [repr(c) for c in valid_types._candidates]  # pyright: ignore[reportPrivateUsage]
+        return [f':py:`{r}`' for r in sorted(reprs)]
     return [f':py:`{_fmt_type(t)}`' for t in valid_types]
 
 
