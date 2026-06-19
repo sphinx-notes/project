@@ -23,7 +23,6 @@ if TYPE_CHECKING:
     from collections.abc import Iterable
     from sphinx.application import Sphinx
     from sphinx.config import Config
-    from sphinx.environment import BuildEnvironment
 
 
 def _fmt_type(t) -> str:
@@ -47,11 +46,8 @@ def _format_autoconfval_types(valid_types) -> list[str]:
 
 
 @filter('autoconfval_types')
-def autoconfval_types(_: BuildEnvironment):
-    def _filter(valid_types) -> Iterable[str]:
-        return _format_autoconfval_types(valid_types)
-
-    return _filter
+def autoconfval_types(valid_types) -> Iterable[str]:
+    return _format_autoconfval_types(valid_types)
 
 
 DATA_DEFINE_DIRECTIVES = {
